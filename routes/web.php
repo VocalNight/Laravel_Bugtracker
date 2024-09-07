@@ -11,6 +11,10 @@ Route::get('/projects', function () {
     return view('projects');
 });
 
+Route::get('/projects/Placeholder', function () {
+    return view('projectInfo');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
