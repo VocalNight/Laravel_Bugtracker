@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        Bugs
+        Tickets
     </x-slot:heading>
 
     <table class="table-fixed border-collapse border-b border-slate-500 min-w-full">
