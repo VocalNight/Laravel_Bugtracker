@@ -45,7 +45,11 @@ class User extends Authenticatable
         ];
     }
 
-    protected function bugs() {
-        return $this->hasMany(Bugs::class);
+    public function createdBugs() {
+        return $this->hasMany(Bug::class, 'CreatedBy');
+    }
+
+    public function assignedBugs() {
+        return $this->HasMany(Bug::class, 'AssignedTo');
     }
 }

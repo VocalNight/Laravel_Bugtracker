@@ -6,9 +6,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bugs>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bug>
  */
-class BugsFactory extends Factory
+class BugFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class BugsFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->title,
+            'title' => fake()->text(30),
             'description' => fake()->paragraph(),
             'AssignedTo' => User::factory(),
             'CreatedBy' => User::factory()

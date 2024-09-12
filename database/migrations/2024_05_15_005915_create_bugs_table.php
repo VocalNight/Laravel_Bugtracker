@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->foreignIdFor(User::class, 'AssignedTo');
-            $table->foreignIdFor(User::class, 'CreatedBy');
+            $table->foreignIdFor(User::class, 'AssignedTo')->nullable()->onDelete('set null');
+            $table->foreignIdFor(User::class, 'CreatedBy')->onDelete('cascade');
         });
     }
 
