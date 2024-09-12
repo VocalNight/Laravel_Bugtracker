@@ -19,5 +19,7 @@
             @endforeach
         </tbody>
     </table>
-
+    <div class="m-2">
+        {{$bugs->links()}}
+    </div>
 </x-layout>
