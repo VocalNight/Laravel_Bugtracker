@@ -12,20 +12,20 @@ Route::get('/projects', function () {
     return view('projects');
 });
 
-Route::get('tickets.index', function () {
-    return view('bugs', [
+Route::get('/tickets', function () {
+    return view('tickets.index', [
         'bugs' => Bug::with('assignedTo')->paginate(5)
     ]);
 });
 
 Route::get('/tickets/create', function () {
-    return view('projects');
+    return view('tickets.create');
 });
 
 Route::get('/tickets/{id}', function ($id) {
     $bug = Bug::find($id);
 
-    return view('ticket', ['bug' => $bug]);
+    return view('tickets.show', ['bug' => $bug]);
 });
 
 Route::get('/projects/Placeholder', function () {
