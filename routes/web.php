@@ -12,7 +12,7 @@ Route::get('/projects', function () {
     return view('projects');
 });
 
-Route::get('/tickets', function () {
+Route::get('tickets.index', function () {
     return view('bugs', [
         'bugs' => Bug::with('assignedTo')->paginate(5)
     ]);
