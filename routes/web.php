@@ -15,11 +15,17 @@ Route::get('/projects', function () {
 
 Route::get('/tickets', function () {
     return view('tickets.index', [
-        'bugs' => Bug::with('assignedTo')->latest()->paginate(5)
+        'bugs' => Bug::with('assignedTo')->latest()->Paginate(5)
     ]);
 });
 
 Route::post('/tickets', function() {
+
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'description' => ['required']
+    ]);
+
     Bug::create([
         'title' => request('title'),
         'description' => request('description'),
