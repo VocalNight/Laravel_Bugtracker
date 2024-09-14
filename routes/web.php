@@ -51,6 +51,14 @@ Route::get('/tickets/{id}', function ($id) {
     return view('tickets.show', ['bug' => $bug, 'user' => $user]);
 });
 
+Route::get('/tickets/{id}/edit', function ($id) {
+    $bug = Bug::find($id);
+    $users = User::all();
+
+    return view('tickets.edit', ['bug' => $bug, 'users' => $users]);
+});
+
+
 Route::get('/projects/Placeholder', function () {
     return view('projectInfo');
 });
