@@ -46,8 +46,9 @@ Route::get('/tickets/create', function () {
 
 Route::get('/tickets/{id}', function ($id) {
     $bug = Bug::find($id);
+    $user = User::select('name')->find($bug->assignedTo)->first();
 
-    return view('tickets.show', ['bug' => $bug]);
+    return view('tickets.show', ['bug' => $bug, 'user' => $user]);
 });
 
 Route::get('/projects/Placeholder', function () {
