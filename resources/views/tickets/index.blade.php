@@ -1,9 +1,13 @@
+@php
+    $tableTitles = ['test1', 'test2'];
+@endphp
+
 <x-layout>
     <x-slot:heading>
         Tickets
     </x-slot:heading>
 
-    <table class="table-fixed border-collapse border-b border-slate-500 min-w-full">
+    <!--<table class="table-fixed border-collapse border-b border-slate-500 min-w-full">
         <thead>
             <tr>
                 <th class="border-b border-slate-600">Title</th>
@@ -12,14 +16,20 @@
         </thead>
         <tbody>
             @foreach ($bugs as $bug )
-                <tr class="border-b border-slate-600">
-                    <td class=""><strong>{{ $bug['title']}}</strong></td>
-                    <td><strong>{{$bug->assignedTo['name']}}</strong></td>
+                <tr class="border-b border-slate-600 hover:bg-slate-400">
+
+                        <td class=""><strong>{{ $bug->title}}</strong></td>
+                        <td><strong>{{$bug->assignedTo->name}}</strong></td>
+
                 </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> -->
+    <x-customTable :tableTitles="$tableTitles" :tickets="$bugs">
+    </x-customTable>
+
     <div class="m-2">
         {{$bugs->links()}}
     </div>
+
 </x-layout>

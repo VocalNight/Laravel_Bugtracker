@@ -3,5 +3,11 @@
         Ticket
     </x-slot:heading>
 
-    {{$bug->title}}
+    <h2 class="font-bold text-lg">{{$bug->title}}</h2>
+
+    <p>{{$bug->description}}</p>
+
+    <p>
+
+    </p>
 </x-layout>
