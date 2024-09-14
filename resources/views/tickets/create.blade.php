@@ -3,48 +3,20 @@
         Create Ticket
     </x-slot:heading>
 
-    <!--
-  This example requires some changes to your config:
+    <form method="POST" action="/tickets">
+        @csrf
 
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-    <form>
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
-
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                        <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
                         <div class="mt-2">
                             <div
                                 class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="text" name="username" id="username" autocomplete="username"
-                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="text" name="title" id="title" autocomplete="title"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-span-full">
-                        <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
-                        <div class="mt-2 flex items-center gap-x-3">
-                            <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
-                                aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <button type="button"
-                                class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
                         </div>
                     </div>
                 </div>
@@ -52,42 +24,25 @@
         </div>
 
         <div class="border-b border-gray-900/10 pb-12">
-            <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Ticket Information</h2>
 
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-3">
-                    <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                    <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
                     <div class="mt-2">
-                        <input type="text" name="first-name" id="first-name" autocomplete="given-name"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <textarea type="text" name="description" id="description"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 px-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                     </div>
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                    <label for="assigned" class="block text-sm font-medium leading-6 text-gray-900">Assigned To</label>
                     <div class="mt-2">
-                        <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    </div>
-                </div>
-
-                <div class="sm:col-span-4">
-                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
-                        address</label>
-                    <div class="mt-2">
-                        <input id="email" name="email" type="email" autocomplete="email"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    </div>
-                </div>
-
-                <div class="sm:col-span-3">
-                    <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
-                    <div class="mt-2">
-                        <select id="country" name="country" autocomplete="country-name"
+                        <select id="assigned" name="assigned" autocomplete="country-name"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                            <option>United States</option>
-                            <option>Canada</option>
-                            <option>Mexico</option>
+                            @foreach ($users as $user)
+                                <option value="{{$user['id']}}">{{$user['name']}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

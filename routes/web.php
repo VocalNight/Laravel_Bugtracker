@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Models\Bug;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,12 +15,27 @@ Route::get('/projects', function () {
 
 Route::get('/tickets', function () {
     return view('tickets.index', [
-        'bugs' => Bug::with('assignedTo')->paginate(5)
+        'bugs' => Bug::with('assignedTo')->latest()->paginate(5)
     ]);
 });
 
+Route::post('/tickets', function() {
+    Bug::create([
+        'title' => request('title'),
+        'description' => request('description'),
+        'AssignedTo' => request('assigned'),
+        'CreatedBy' => 1
+    ]);
+
+    return redirect('/tickets');
+});
+
 Route::get('/tickets/create', function () {
-    return view('tickets.create');
+    $users = User::all();
+
+    return view('tickets.create', [
+        'users' => $users
+    ]);
 });
 
 Route::get('/tickets/{id}', function ($id) {
