@@ -64,12 +64,12 @@ Route::patch('/tickets/{id}', function ($id) {
     //update
     $ticket->title = request('title');
     $ticket->description = request('description');
-    $ticket->assignedTo = request('assignedTo');
+    $ticket->assignedTo = request('assigned');
 
     //save in db
     $ticket->save();
 
-    return redirect('/tickets/', $ticket->id);
+    return redirect("/tickets/" . $ticket->id);
 
 });
 

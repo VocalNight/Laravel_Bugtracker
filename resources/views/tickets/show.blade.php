@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        Create Ticket
+        Viewing Ticket: {{$bug->title}}
     </x-slot:heading>
 
     <form>
