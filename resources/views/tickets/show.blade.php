@@ -46,7 +46,18 @@
         </div>
     </form>
 
-   <p class="mt-6 flex items-center justify-end gap-x-6">
+   <div class="mt-6 flex items-center justify-between gap-x-6">
+    <div class="flex items-center">
+        <button form="delete-form" class="text-red-500 text-sm font-bold">Delete</button>
+    </div>
+    <div>
         <x-button href="/tickets/{{$bug->id}}/edit">Edit Ticket</x-button>
-   </p>
+    </div>
+
+</div>
+
+   <form method="POST" action="/tickets/{{$bug->id}}" id="delete-form" class="hidden">
+        @csrf
+        @method('DELETE')
+    </form>
 </x-layout>
