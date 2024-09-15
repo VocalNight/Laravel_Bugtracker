@@ -51,6 +51,38 @@ Route::get('/tickets/{id}', function ($id) {
     return view('tickets.show', ['bug' => $bug, 'user' => $user]);
 });
 
+Route::patch('/tickets/{id}', function ($id) {
+
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'description' => ['required']
+    ]);
+
+    // Find the object or abort
+    $ticket = Bug::findOrFail($id);
+
+    //update
+    $ticket->title = request('title');
+    $ticket->description = request('description');
+    $ticket->assignedTo = request('assignedTo');
+
+    //save in db
+    $ticket->save();
+
+    return redirect('/tickets/', $ticket->id);
+
+});
+
+Route::delete('/tickets/{id}', function ($id) {
+
+        // Find the object or abort
+        $ticket = Bug::findOrFail($id);
+
+        $ticket->delete();
+
+        return redirect('/tickets');
+});
+
 Route::get('/tickets/{id}/edit', function ($id) {
     $bug = Bug::find($id);
     $users = User::all();

@@ -46,7 +46,7 @@
         </div>
     </form>
 
-   <p class="mt-6">
+   <p class="mt-6 flex items-center justify-end gap-x-6">
         <x-button href="/tickets/{{$bug->id}}/edit">Edit Ticket</x-button>
    </p>
 </x-layout>
