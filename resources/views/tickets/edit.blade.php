@@ -9,22 +9,19 @@
         @csrf
         @method('PATCH')
 
+        <div class="bg-white dark:bg-gray-800 shadow-md overflow-hidden p-5">
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
                         <div class="mt-2">
+                            <x-input-label for="title" :value="__('Title')" />
                             <div
                                 class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input
-                                type="text"
-                                name="title"
-                                id="title"
-                                autocomplete="title"
-                                value="{{$bug->title}}"
-                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" required>
+                                <input type="text" name="title" id="title" autocomplete="title" value="{{$bug->title}}""
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 px-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                             </div>
+
                             @error('title')
                                 <p class="text-xs text-red-500 font-semibold mt-1">{{$message}}</p>
                             @enderror
@@ -34,12 +31,13 @@
             </div>
         </div>
 
+
         <div class="border-b border-gray-900/10 pb-12">
-            <h2 class="text-base font-semibold leading-7 text-gray-900">Ticket Information</h2>
+            <h2 class="text-base font-semibold leading-7 text-gray-700 dark:text-gray-300">Ticket Information</h2>
 
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-3">
-                    <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
+                    <x-input-label for="description" :value="__('Description')" />
                     <div class="mt-2">
                         <textarea type="text" name="description" id="description"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 px-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>{{$bug->description}}</textarea>
@@ -50,7 +48,7 @@
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="assigned" class="block text-sm font-medium leading-6 text-gray-900">Assigned To</label>
+                    <x-input-label for="assigned" :value="__('Assigned To')" />
                     <div class="mt-2">
                         <select id="assigned" name="assigned" value="{{$bug->AssignedTo}}"
 
@@ -72,6 +70,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
 
