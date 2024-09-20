@@ -1,7 +1,9 @@
-<x-layout>
-    <x-slot:heading>
-        Edit Ticket
-    </x-slot:heading>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Edit Ticket
+        </h2>
+    </x-slot>
 
     <form method="POST" action="/tickets/{{ $bug->id}}">
         @csrf
@@ -84,4 +86,4 @@
         </div>
     </form>
 
-</x-layout>
+</x-app-layout>

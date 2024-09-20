@@ -1,7 +1,9 @@
-<x-layout>
-    <x-slot:heading>
-        Create Ticket
-    </x-slot:heading>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Create Ticket
+        </h2>
+    </x-slot>
 
     <form method="POST" action="/tickets">
         @csrf
@@ -73,4 +75,4 @@
         </div>
     </form>
 
-</x-layout>
+</x-app-layout>

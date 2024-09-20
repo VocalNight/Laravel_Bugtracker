@@ -1,14 +1,16 @@
-<x-layout>
-    <x-slot:heading>
-        Viewing Ticket: {{$bug->title}}
-    </x-slot:heading>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Viewing Ticket: {{$bug->title}}
+        </h2>
+    </x-slot>
 
     <form>
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
+                        <label for="title" class="block text-sm font-medium leading-6 dark:text-gray-200">Title</label>
                         <div class="mt-2">
                             <div
                                 class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
@@ -60,4 +62,4 @@
         @csrf
         @method('DELETE')
     </form>
-</x-layout>
+</x-app-layout>

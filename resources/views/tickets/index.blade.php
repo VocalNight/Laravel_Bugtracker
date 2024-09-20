@@ -2,10 +2,12 @@
     $tableTitles = ['test1', 'test2'];
 @endphp
 
-<x-layout>
-    <x-slot:heading>
-        Tickets
-    </x-slot:heading>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Tickets
+        </h2>
+    </x-slot>
 
     <!--<table class="table-fixed border-collapse border-b border-slate-500 min-w-full">
         <thead>
@@ -32,4 +34,4 @@
         {{$bugs->links()}}
     </div>
 
-</x-layout>
+</x-app-layout>
