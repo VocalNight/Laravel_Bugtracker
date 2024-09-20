@@ -10,7 +10,9 @@ Route::get('/projects', function () {
     return view('projects');
 });
 
-Route::controller(BugsController::class)->group(function() {
+Route::controller(BugsController::class)
+->middleware(['auth', 'verified'])
+->group(function() {
     Route::get('/tickets',  'index');
     Route::get('/tickets/create', 'create');
     Route::get('/tickets/{bug}', 'show');
@@ -24,10 +26,6 @@ Route::controller(BugsController::class)->group(function() {
 
 Route::get('/projects/Placeholder', function () {
     return view('projectInfo');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
 });
 
 
