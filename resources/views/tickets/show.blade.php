@@ -35,7 +35,7 @@
 
                             <div class="mt-2">
                                 <select id="assigned" name="assigned" autocomplete="country-name"
-                                    class="block w-full py-1.5 text-gray-900 ring-1 ring-inset focus:ring-2 focus:ring-inset sm:max-w-xs sm:text-sm sm:leading-6 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300  dark:focus:border-indigo-600 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                                    class="block w-full px-3 py-1.5 text-gray-900 ring-1 ring-inset focus:ring-2 focus:ring-inset sm:max-w-xs sm:text-sm sm:leading-6 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300  dark:focus:border-indigo-600 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                                     disabled>
                                     <option value="{{ $bug->AssignedTo }}" selected>{{ $user->name }}
                                     </option>
@@ -45,21 +45,17 @@
                     </div>
                 </div>
 
+                <div class=" flex items-center gap-x-6">
+                    <div class="flex items-center">
+                        <x-deleteButton form="delete-form">Delete</x-deleteButton>
+                    </div>
+                    <div>
+                        <x-button href="/tickets/{{ $bug->id }}/edit">Edit Ticket</x-button>
+                    </div>
+                </div>
             </div>
-
         </div>
-
     </form>
-
-    <div class="mt-6 flex items-center justify-between gap-x-6">
-        <div class="flex items-center">
-            <button form="delete-form" class="text-red-500 text-sm font-bold">Delete</button>
-        </div>
-        <div>
-            <x-button href="/tickets/{{ $bug->id }}/edit">Edit Ticket</x-button>
-        </div>
-
-    </div>
 
     <form method="POST" action="/tickets/{{ $bug->id }}" id="delete-form" class="hidden">
         @csrf
