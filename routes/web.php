@@ -4,11 +4,13 @@ use App\Http\Controllers\BugsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home');
+Route::view('/', 'home')->middleware(['auth']);
 
 Route::get('/projects', function () {
     return view('projects');
-});
+})->middleware(['auth']);
+
+
 
 Route::controller(BugsController::class)
 ->middleware(['auth', 'verified'])
