@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bugs;
-use App\Http\Requests\StoreBugsRequest;
-use App\Http\Requests\UpdateBugsRequest;
 use App\Models\Bug;
 use App\Models\User;
 
