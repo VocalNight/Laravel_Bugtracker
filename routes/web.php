@@ -4,16 +4,18 @@ use App\Http\Controllers\BugsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home');
+Route::view('/', 'home')->middleware(['guest']);
 
 Route::get('/projects', function () {
     return view('projects');
-});
+})->middleware(['auth'])->name('projects');
+
+
 
 Route::controller(BugsController::class)
 ->middleware(['auth', 'verified'])
 ->group(function() {
-    Route::get('/tickets',  'index');
+    Route::get('/tickets',  'index')->name('tickets');
     Route::get('/tickets/create', 'create');
     Route::get('/tickets/{bug}', 'show');
     Route::get('/tickets/{bug}/edit', 'edit');
