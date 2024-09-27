@@ -2,14 +2,16 @@
 
 use App\Http\Controllers\BugsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->middleware(['guest']);
 
-Route::get('/projects', function () {
-    return view('projects');
-})->middleware(['auth'])->name('projects');
-
+Route::controller(ProjectsController::class)
+->middleware(['auth'])
+->group(function(): void {
+    Route::get('/projects', 'index')->name('projects');
+});
 
 
 Route::controller(BugsController::class)
@@ -23,6 +25,7 @@ Route::controller(BugsController::class)
     Route::patch('/tickets/{bug}', 'update');
     Route::delete('/tickets/{bug}', 'destroy');
 });
+
 
 
 

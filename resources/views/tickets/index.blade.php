@@ -1,5 +1,5 @@
 @php
-    $tableTitles = ['test1', 'test2'];
+    $tableTitles = ['Number', 'Title'];
 @endphp
 
 <x-app-layout>

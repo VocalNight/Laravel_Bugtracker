@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\projects;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -12,7 +12,9 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        return view('projects.index', [
+            'projects' => Project::latest()->paginate(5)
+        ]);
     }
 
     /**
@@ -32,25 +34,9 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(projects $projects)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(projects $projects)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, projects $projects)
+    public function update(Request $request, Project $projects)
     {
         //
     }
@@ -58,7 +44,7 @@ class ProjectsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(projects $projects)
+    public function destroy(Project $projects)
     {
         //
     }

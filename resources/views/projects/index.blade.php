@@ -9,11 +9,12 @@
         </h2>
     </x-slot>
 
-    <x-customTable :tableTitles="$tableTitles" :tickets="$bugs">
+    <x-customTable :tableTitles="$tableTitles" :tickets="$projects">
     </x-customTable>
 
     <div class="m-2">
-        {{$bugs->links()}}
+        <!--paginanation-->
+        {{$projects->links()}}
     </div>
 
 </x-app-layout>
