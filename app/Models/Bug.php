@@ -18,6 +18,10 @@ class Bug extends Model
         return $this->belongsTo(User::class, 'AssignedTo');
     }
 
+    public function project(): BelongsTo {
+        return $this->belongsTo(Project::class, 'project');
+    }
+
     public $timestamps = false;
 
     protected $fillable = [

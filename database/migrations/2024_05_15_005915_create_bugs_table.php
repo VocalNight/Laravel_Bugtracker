@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,6 +20,7 @@ return new class extends Migration
             //Make separated table for types of ticket/bug
             $table->foreignIdFor(User::class, 'AssignedTo')->nullable()->onDelete('set null');
             $table->foreignIdFor(User::class, 'CreatedBy')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Project::class, 'project')->constrained()->cascadeOnDelete();
         });
     }
 
