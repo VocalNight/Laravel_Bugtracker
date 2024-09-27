@@ -22,7 +22,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -30,7 +30,16 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'title' => ['required', 'min:3'],
+        ]);
+
+        Project::create([
+            'title' => request('title'),
+            'open' => 1
+        ]);
+
+        return redirect('/projects');
     }
 
     /**
