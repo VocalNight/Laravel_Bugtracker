@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             //Make separated table for types of ticket/bug
-            $table->foreignIdFor(User::class, 'AssignedTo')->nullable()->onDelete('set null');
-            $table->foreignIdFor(User::class, 'CreatedBy');
+            $table->foreignIdFor(User::class, 'AssignedTo')->constrained('users')->cascadeOnDelete();
+            $table->foreignIdFor(User::class, 'CreatedBy')->constrained('users')->cascadeOnDelete();
             $table->foreignIdFor(Project::class, 'project')->constrained()->cascadeOnDelete();
         });
     }
