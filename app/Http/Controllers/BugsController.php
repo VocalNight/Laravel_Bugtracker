@@ -43,7 +43,8 @@ class BugsController extends Controller
             'title' => request('title'),
             'description' => request('description'),
             'AssignedTo' => request('assigned'),
-            'CreatedBy' => 1
+            'CreatedBy' => 2,
+            'project' => 1
         ]);
 
         return redirect('/tickets');

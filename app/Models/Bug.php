@@ -26,7 +26,7 @@ class Bug extends Model
 
     protected $fillable = [
         'title',
-        'Project',
+        'project',
         'description',
         'AssignedTo',
         'CreatedBy'

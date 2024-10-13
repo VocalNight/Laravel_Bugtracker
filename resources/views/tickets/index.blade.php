@@ -34,4 +34,8 @@
         {{$bugs->links()}}
     </div>
 
+    <div>
+        <x-button href="/tickets/create">Create Ticket</x-buton>
+    </div>
+
 </x-app-layout>

@@ -16,7 +16,7 @@
                     {{$ticket->title}}
                 </div>
                 <div class="table-cell">
-                    {{$ticket->assignedTo->name}}
+                    {{$ticket->assignedTo != null ? $ticket->assignedTo->name : 'testing'}}
                 </div>
             </a>
         @endforeach
